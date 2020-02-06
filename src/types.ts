@@ -7,8 +7,8 @@
  */
 
 /**
-  * The interface for types. All types are able to be compared and displayed.
-  */
+ * The interface for types. All types are able to be compared and displayed.
+ */
 interface Type {
     /**
      * Displays the type information in a human-readable form.
@@ -72,5 +72,16 @@ class TypeVar implements Type {
     }
     equals(t: Type) {
         return t.show() === this.show();
+    }
+}
+
+/**
+ * An auxiliary generator for generating unique names for type variables.
+ */
+function* typenames() {
+    let i = 0;
+
+    while (true) {
+        yield "T" + (i++);
     }
 }
